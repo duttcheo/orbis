@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Orbis">
+  <defs>
+    <radialGradient id="core" cx=".36" cy=".3" r=".75">
+      <stop offset="0" stop-color="#f1f8ff"/>
+      <stop offset=".3" stop-color="#9fd0ff"/>
+      <stop offset=".75" stop-color="#2f6bff"/>
+      <stop offset="1" stop-color="#1636a0"/>
+    </radialGradient>
+    <radialGradient id="glass" cx=".34" cy=".28" r=".8">
+      <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".55" stop-color="#a9cfff" stop-opacity=".04"/>
+      <stop offset=".86" stop-color="#a9cfff" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".6"/>
+    </radialGradient>
+    <clipPath id="front"><rect x="-10" y="32" width="84" height="40"/></clipPath>
+  </defs>
+  <g transform="rotate(-18 32 32)">
+    <ellipse cx="32" cy="32" rx="29.5" ry="8.5" fill="none" stroke="#cfe6ff" stroke-opacity=".35" stroke-width="1.6"/>
+  </g>
+  <circle cx="32" cy="32.5" r="14" fill="url(#core)"/>
+  <g transform="rotate(-18 32 32)">
+    <ellipse cx="32" cy="32" rx="29.5" ry="8.5" fill="none" stroke="#eaf4ff" stroke-width="1.8" clip-path="url(#front)"/>
+  </g>
+  <circle cx="32" cy="32" r="26.5" fill="url(#glass)" stroke="#fff" stroke-opacity=".55" stroke-width=".9"/>
+  <ellipse cx="23" cy="16.5" rx="8" ry="3.2" transform="rotate(-28 23 16.5)" fill="#fff" fill-opacity=".55"/>
+</svg>

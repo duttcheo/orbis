@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbis — ваш бизнес говорит, Orbis создаёт контент</title>
+  <meta name="description" content="Orbis — ИИ-сервис для малого бизнеса: посты и короткие ролики из ваших голосовых, фото и видео, контент-план на 30 дней и публикация только после вашего одобрения. Готовим пилот в Санкт-Петербурге.">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Orbis — ваш бизнес говорит, Orbis создаёт контент">
+  <meta property="og:description" content="Посты и ролики из ваших фото, видео и голосовых заметок, план на 30 дней, публикация после вашего «Одобрить». Первым участникам — до 6 месяцев бесплатно.">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/onest-normal-300-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=8">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+
+  <svg width="0" height="0" class="sr-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="mk-core" cx=".36" cy=".3" r=".75">
+        <stop offset="0" stop-color="#f1f8ff"/><stop offset=".3" stop-color="#9fd0ff"/>
+        <stop offset=".75" stop-color="#2f6bff"/><stop offset="1" stop-color="#1636a0"/>
+      </radialGradient>
+      <radialGradient id="mk-glass" cx=".34" cy=".28" r=".8">
+        <stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".55" stop-color="#a9cfff" stop-opacity=".04"/>
+        <stop offset=".86" stop-color="#a9cfff" stop-opacity=".14"/><stop offset="1" stop-color="#fff" stop-opacity=".6"/>
+      </radialGradient>
+      <clipPath id="mk-front"><rect x="-10" y="32" width="84" height="40"/></clipPath>
+      <symbol id="mark" viewBox="0 0 64 64">
+        <g transform="rotate(-18 32 32)"><ellipse cx="32" cy="32" rx="29.5" ry="8.5" fill="none" stroke="#cfe6ff" stroke-opacity=".35" stroke-width="1.6"/></g>
+        <circle cx="32" cy="32.5" r="14" fill="url(#mk-core)"/>
+        <g transform="rotate(-18 32 32)"><ellipse cx="32" cy="32" rx="29.5" ry="8.5" fill="none" stroke="#eaf4ff" stroke-width="1.8" clip-path="url(#mk-front)"/></g>
+        <circle cx="32" cy="32" r="26.5" fill="url(#mk-glass)" stroke="#fff" stroke-opacity=".55" stroke-width=".9"/>
+        <ellipse cx="23" cy="16.5" rx="8" ry="3.2" transform="rotate(-28 23 16.5)" fill="#fff" fill-opacity=".55"/>
+      </symbol>
+      <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 4.3 2.9 11.5c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5Zm-4 3.4-8.7 7.9-.3 3.6-1.6-5 10-6.9c.5-.3.9 0 .6.4Z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></g></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__in">
+      <a class="brand" href="#top" aria-label="Orbis — на главную">
+        <svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg>
+        <span class="brand__word">Orbis</span>
+      </a>
+      <nav class="nav__links" aria-label="Разделы">
+        <a href="#how">Как работает</a>
+        <a href="#features">Возможности</a>
+        <a href="#price">Тариф</a>
+        <a href="#team">Команда</a>
+      </nav>
+      <a class="btn btn--glass btn--sm" href="#apply">Заполнить анкету</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. Первый экран -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__orb" aria-hidden="true">
+        <svg viewBox="0 0 600 600" class="orb">
+          <defs>
+            <radialGradient id="o-core" cx=".36" cy=".3" r=".78">
+              <stop offset="0" stop-color="#f4faff"/><stop offset=".22" stop-color="#bfe2ff"/>
+              <stop offset=".55" stop-color="#5aa4ff"/><stop offset=".85" stop-color="#2459e6"/><stop offset="1" stop-color="#132f8f"/>
+            </radialGradient>
+            <radialGradient id="o-glass" cx=".34" cy=".27" r=".82">
+              <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#9cc8ff" stop-opacity=".03"/>
+              <stop offset=".84" stop-color="#9cc8ff" stop-opacity=".12"/><stop offset=".97" stop-color="#e6f2ff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".9"/>
+            </radialGradient>
+            <linearGradient id="o-ring" x1="0" x2="1">
+              <stop offset="0" stop-color="#cfe6ff" stop-opacity=".15"/><stop offset=".5" stop-color="#f2f8ff" stop-opacity=".95"/><stop offset="1" stop-color="#cfe6ff" stop-opacity=".2"/>
+            </linearGradient>
+            <filter id="o-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="o-bloom" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="o-front"><rect x="-200" y="300" width="1000" height="400"/></clipPath>
+            <clipPath id="o-back"><rect x="-200" y="-100" width="1000" height="400"/></clipPath>
+          </defs>
+          <g transform="rotate(-16 300 300)">
+            <ellipse cx="300" cy="300" rx="292" ry="78" fill="none" stroke="url(#o-ring)" stroke-width="2.2" clip-path="url(#o-back)" opacity=".45"/>
+          </g>
+          <circle cx="300" cy="306" r="148" fill="url(#o-core)"/>
+          <ellipse cx="248" cy="232" rx="58" ry="30" transform="rotate(-30 248 232)" fill="#fff" opacity=".35" filter="url(#o-soft)"/>
+          <g transform="rotate(-16 300 300)">
+            <ellipse cx="300" cy="300" rx="292" ry="78" fill="none" stroke="url(#o-ring)" stroke-width="2.6" clip-path="url(#o-front)"/>
+            <circle r="6" fill="#f2f8ff" filter="url(#o-bloom)" class="orb__sat">
+              <animateMotion dur="9s" repeatCount="indefinite" path="M8,300 a292,78 0 1,0 584,0 a292,78 0 1,0 -584,0"/>
+            </circle>
+          </g>
+          <circle cx="300" cy="300" r="252" fill="url(#o-glass)" stroke="#fff" stroke-opacity=".38" stroke-width="1.2"/>
+          <path d="M120 190a220 220 0 0 1 150-118" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="5" stroke-linecap="round" filter="url(#o-soft)"/>
+          <path d="M128 186a214 214 0 0 1 142-112" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="2" stroke-linecap="round"/>
+          <path d="M470 430a214 214 0 0 1-84 70" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="wrap hero__in">
+        <h1 id="hero-title" class="hero__title" data-enter><span class="l">Ваш бизнес говорит&nbsp;—</span> <em>Orbis создаёт контент</em></h1>
+        <p class="hero__lead" data-enter>Превращайте фото, видео и голосовые заметки в&nbsp;посты для ваших соцсетей</p>
+        <div class="hero__actions" data-enter>
+          <a class="btn btn--light" href="#apply">Заполнить анкету <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="https://t.me/duttcheo" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg> Написать в Telegram</a>
+        </div>
+        <p class="hero__fact" data-enter><span class="dot" aria-hidden="true"></span>Готовим пилот в Санкт-Петербурге. Первым участникам — до&nbsp;6&nbsp;месяцев бесплатно.</p>
+      </div>
+    </section>
+
+    <!-- 2. Проблема -->
+    <section class="sec problem" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <h2 id="problem-title" class="h2">Один пост сегодня&nbsp;— это <em>множество вкладок</em>, оплата подписок и&nbsp;потерянное время</h2>
+        <div class="problem__grid">
+          <ol class="chain" aria-label="Как пост делается сейчас">
+            <li><span class="chain__n">Заметки</span><span class="chain__t">Записать идею в заметки на смартфоне</span></li>
+            <li><span class="chain__n">ChatGPT</span><span class="chain__t">Обработать текст через нейросеть</span><span class="tag">подписка</span></li>
+            <li><span class="chain__n">Canva</span><span class="chain__t">Собрать карточку или обложку</span><span class="tag">подписка</span></li>
+            <li><span class="chain__n">ВКонтакте</span><span class="chain__t">Угадать удачное время и опубликовать вручную</span></li>
+            <li><span class="chain__n">Статистика</span><span class="chain__t">Отдельно открыть, разобраться, сделать выводы</span></li>
+          </ol>
+          <div class="problem__text">
+            <p class="big">82% предпринимателей ведут соцсети <em>сами</em>. <span class="big__sub">И&nbsp;именно здесь можно обогнать конкурентов.</span></p>
+            <p>По данным опроса Минэкономразвития и ассоциации «Мой бизнес&nbsp;— мои возможности» (2024&nbsp;г.) среди 4&nbsp;000 представителей МСП, 82% респондентов ведут аккаунты самостоятельно.</p>
+            <p>Большинство владельцев пытаются совмещать ведение соцсетей с текущими задачами. В результате публикации откладываются, контент становится нерегулярным, а аккаунт заведения постепенно теряет активность.</p>
+            <p class="problem__fix"><svg class="problem__mark" aria-hidden="true"><use href="#mark"/></svg> С Orbis ведение соцсетей под контролем</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Как работает -->
+    <section class="sec how" id="how" aria-labelledby="how-title">
+      <div class="how__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="how-title" class="h2">Вы говорите. Orbis собирает пост. <em>Вы одобряете.</em></h2>
+          <p class="sec__lead">Orbis узнаёт о предложениях, ценах и акциях и генерирует контент, опираясь на них, а не на догадки.</p>
+        </div>
+
+        <div class="demo" data-demo>
+          <div class="demo__steps" role="tablist" aria-label="Шаги работы с Orbis">
+            <div class="demo__orbit" aria-hidden="true"><svg viewBox="0 0 28 100" preserveAspectRatio="none"><path d="M26 0 Q -18 50 26 100" vector-effect="non-scaling-stroke"/></svg><i class="demo__light"></i></div>
+            <button class="demo__step" role="tab" id="st-1" aria-controls="pn-1" aria-selected="true"><span class="demo__k">Голосовое</span><span class="demo__d">Наговорите как есть, своими словами</span></button>
+            <button class="demo__step" role="tab" id="st-2" aria-controls="pn-2" aria-selected="false" tabindex="-1"><span class="demo__k">Черновик</span><span class="demo__d">Orbis превращает его в продающий пост</span></button>
+            <button class="demo__step" role="tab" id="st-3" aria-controls="pn-3" aria-selected="false" tabindex="-1"><span class="demo__k">Правки</span><span class="demo__d">Попросите короче или иначе&nbsp;— и одобрите</span></button>
+            <button class="demo__step" role="tab" id="st-4" aria-controls="pn-4" aria-selected="false" tabindex="-1"><span class="demo__k">План</span><span class="demo__d">Пост встаёт в расписание на лучшее время</span></button>
+            <button class="demo__toggle" type="button" data-demo-toggle aria-label="Остановить показ"><svg class="ic-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="ic-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+          </div>
+
+          <div class="app" aria-live="polite">
+            <div class="app__bar"><svg class="app__mark" aria-hidden="true"><use href="#mark"/></svg><span>Кофейня «Star Coffee»</span><span class="app__label">концепт интерфейса</span></div>
+
+            <div class="pane" role="tabpanel" id="pn-1" aria-labelledby="st-1">
+              <div class="voice">
+                <span class="voice__ic"><svg aria-hidden="true"><use href="#i-mic"/></svg></span>
+                <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="voice__t">0:34</span>
+              </div>
+              <p class="quote">«Так, э-э… короче, с понедельника у нас фисташковый раф. Пасту сами варим, без сиропов. Стоит двести девяносто, ну, до конца ноября. Фотки с утра скинул, сделай что-нибудь, чтобы зашло»</p>
+              <div class="files"><span class="file">IMG_2041.jpg</span><span class="file">IMG_2044.jpg</span><span class="file">IMG_2049.mp4</span></div>
+            </div>
+
+            <div class="pane" role="tabpanel" id="pn-2" aria-labelledby="st-2" hidden>
+              <article class="post">
+                <p class="post__h">Новинка ноября: фисташковый раф</p>
+                <p>Нежный эспрессо, сливки и фисташковая паста, которую мы варим сами&nbsp;— ни&nbsp;капли сиропа. Вкус жареного ореха, бархатная текстура и&nbsp;лёгкая солёная нотка в&nbsp;послевкусии.</p>
+                <p>Только до 30 ноября&nbsp;— 290&nbsp;₽. Заходите с&nbsp;8:00 и&nbsp;станьте одним из&nbsp;первых, кто его попробует.</p>
+                <p class="post__tags">#starcoffee #кофевпитере #фисташковыйраф</p>
+              </article>
+              <div class="checks">
+                <span class="chip chip--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Цена из профиля: 290 ₽</span>
+                <span class="chip chip--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Акция до 30 ноября</span>
+                <span class="chip chip--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Открыты с 8:00</span>
+              </div>
+            </div>
+
+            <div class="pane" role="tabpanel" id="pn-3" aria-labelledby="st-3" hidden>
+              <p class="ask"><span>Вы</span>Давай покороче, в два предложения</p>
+              <article class="post post--short">
+                <p class="post__h">Новинка ноября: фисташковый раф</p>
+                <p>Сливки, эспрессо и наша фисташковая паста без сиропов&nbsp;— бархатный, с&nbsp;солёной ноткой. До 30 ноября всего 290&nbsp;₽, ждём с&nbsp;8:00.</p>
+              </article>
+              <div class="checks"><span class="chip chip--ok"><svg aria-hidden="true"><use href="#i-check"/></svg>Короче в 2 раза, цена и сроки сохранены</span></div>
+              <div class="actions"><span class="btn btn--ghost btn--xs" aria-hidden="true">Ещё вариант</span><span class="btn btn--light btn--xs" aria-hidden="true"><svg><use href="#i-check"/></svg> Одобрить</span></div>
+            </div>
+
+            <div class="pane" role="tabpanel" id="pn-4" aria-labelledby="st-4" hidden>
+              <div class="week">
+                <div class="week__d"><b>Пн</b><span class="slot">Новое меню</span></div>
+                <div class="week__d"><b>Вт</b></div>
+                <div class="week__d week__d--on"><b>Ср</b><span class="slot slot--new">9:30<span>Фисташковый раф</span><small>ВКонтакте · одобрено</small></span></div>
+                <div class="week__d"><b>Чт</b></div>
+                <div class="week__d"><b>Пт</b><span class="slot">Ролик о бариста</span></div>
+                <div class="week__d"><b>Сб</b></div>
+                <div class="week__d"><b>Вс</b><span class="slot">Отзыв гостя</span></div>
+              </div>
+              <p class="note">Orbis выбрал среду, 9:30: в это время ваши подписчики активнее всего. Через неделю покажет, как сработал пост.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Что умеет -->
+    <section class="sec features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="features-title" class="h2">Всё для соцсетей бизнеса&nbsp;— <em>в&nbsp;одном месте</em></h2>
+        </div>
+        <div class="mods" data-mods>
+          <div class="mods__list" role="tablist" aria-label="Возможности Orbis">
+            <button role="tab" id="mt-1" aria-controls="mp-1" aria-selected="true">Профиль заведения</button>
+            <button role="tab" id="mt-2" aria-controls="mp-2" aria-selected="false" tabindex="-1">Контент-план на 30 дней</button>
+            <button role="tab" id="mt-3" aria-controls="mp-3" aria-selected="false" tabindex="-1">Посты и короткие ролики</button>
+            <button role="tab" id="mt-4" aria-controls="mp-4" aria-selected="false" tabindex="-1">Одобрение и публикация</button>
+            <button role="tab" id="mt-5" aria-controls="mp-5" aria-selected="false" tabindex="-1">Ответы на вопросы гостей</button>
+            <button role="tab" id="mt-6" aria-controls="mp-6" aria-selected="false" tabindex="-1">Аналитика с советами</button>
+          </div>
+
+          <div class="mods__panels">
+            <div class="mod" role="tabpanel" id="mp-1" aria-labelledby="mt-1">
+              <p class="mod__t">Один раз заполните меню, цены, акции, манеру общения и частые вопросы гостей. Orbis опирается на эти данные в каждом посте и ответе, а если чего-то не хватает, спросит, а не придумает.</p>
+              <dl class="profile">
+                <div><dt>Заведение</dt><dd>Кофейня у метро, 24 места</dd></div>
+                <div><dt>Тон</dt><dd>Дружелюбно, на «вы», без капслока</dd></div>
+                <div><dt>Акции</dt><dd>Второй капучино −50% до 11:00</dd></div>
+                <div><dt>Нельзя</dt><dd>Обещать доставку — её нет</dd></div>
+              </dl>
+            </div>
+            <div class="mod" role="tabpanel" id="mp-2" aria-labelledby="mt-2" hidden>
+              <p class="mod__t">Темы, форматы и цели на месяц вперёд: новинки, атмосфера, отзывы, ответы на частые вопросы. Любую тему можно заменить или убрать.</p>
+              <div class="cal" aria-hidden="true">
+                <span></span><span class="c-post"></span><span></span><span class="c-reel"></span><span></span><span class="c-post"></span><span></span>
+                <span></span><span class="c-story"></span><span></span><span class="c-post"></span><span></span><span class="c-reel"></span><span></span>
+                <span class="c-post"></span><span></span><span></span><span class="c-reel"></span><span></span><span class="c-post"></span><span></span>
+                <span></span><span class="c-post"></span><span></span><span class="c-story"></span><span></span><span class="c-reel"></span><span></span>
+                <span class="c-post"></span><span></span>
+              </div>
+              <p class="legend"><span class="lg lg-post">пост</span><span class="lg lg-reel">ролик</span><span class="lg lg-story">отзыв</span></p>
+            </div>
+            <div class="mod" role="tabpanel" id="mp-3" aria-labelledby="mt-3" hidden>
+              <p class="mod__t">Тексты, заголовки, обложки и сценарии. Короткий ролик Orbis соберёт из ваших же фото и видео: выберет кадры, добавит субтитры, музыку из лицензионной библиотеки и финальный экран.</p>
+              <div class="reel" aria-hidden="true">
+                <div class="reel__frame"><span class="reel__sub">Новинка ноября: фисташковый раф</span><span class="reel__bar"><i></i></span></div>
+                <div class="reel__tpl"><span class="chip chip--on">Новинка</span><span class="chip">Акция</span><span class="chip">Отзыв гостя</span></div>
+              </div>
+            </div>
+            <div class="mod" role="tabpanel" id="mp-4" aria-labelledby="mt-4" hidden>
+              <p class="mod__t">Ничего не уходит в соцсети без вашего «Одобрить». Вы видите текст, обложку, дату и время и решаете сами.</p>
+              <div class="approve" aria-hidden="true">
+                <div class="approve__row"><span>Ср, 9:30</span><span>Фисташковый раф</span><span class="chip chip--ok">одобрено</span></div>
+                <div class="approve__row"><span>Пт, 18:00</span><span>Ролик: утро бариста</span><span class="chip chip--wait">ждёт вас</span></div>
+                <div class="approve__row"><span>Вс, 12:00</span><span>Отзыв гостя</span><span class="chip">черновик</span></div>
+              </div>
+            </div>
+            <div class="mod" role="tabpanel" id="mp-5" aria-labelledby="mt-5" hidden>
+              <p class="mod__t">Orbis разбирает сообщения гостей и готовит черновики ответов на типовые вопросы. Отправляете вы. Сложные и деликатные обращения сервис отметит и оставит вам.</p>
+              <div class="dm" aria-hidden="true">
+                <p class="dm__in">Добрый вечер! Вы до скольки сегодня?</p>
+                <p class="dm__out">Добрый вечер! Сегодня работаем до 22:00, ждём вас.<span>черновик · отправите сами</span></p>
+              </div>
+            </div>
+            <div class="mod" role="tabpanel" id="mp-6" aria-labelledby="mt-6" hidden>
+              <p class="mod__t">Показатели подключённых аккаунтов в одном отчёте: какие темы и форматы сработали лучше и что стоит усилить в следующем месяце.</p>
+              <div class="bars" aria-hidden="true">
+                <div><span>Ролики</span><i style="--v:.86"></i></div>
+                <div><span>Новинки меню</span><i style="--v:.68"></i></div>
+                <div><span>Отзывы гостей</span><i style="--v:.52"></i></div>
+                <div><span>Акции</span><i style="--v:.34"></i></div>
+              </div>
+              <p class="note">Пример отчёта: данные условные.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Тариф -->
+    <section class="sec price" id="price" aria-labelledby="price-title">
+      <div class="wrap price__grid">
+        <div>
+          <h2 id="price-title" class="h2">Один тариф, <em>понятные лимиты</em></h2>
+          <p class="sec__lead">Без агентства и без SMM-специалиста в штате: Orbis рассчитан на владельца или администратора, который ведёт соцсети сам.</p>
+          <p class="price__more">Для сетей и команд позже появятся тарифы «Бизнес» и «Профи» с расширенными лимитами, сложным монтажом и командным доступом.</p>
+        </div>
+        <div class="plan">
+          <p class="plan__name">Старт</p>
+          <p class="plan__sum"><span>4 990 ₽</span> в месяц</p>
+          <ul class="plan__list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Одно заведение и один набор соцсетей</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Контент-план на 30 дней</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>До 12 публикаций в месяц</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>До 60 генераций и правок текста</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>До 5 ГБ ваших фото и видео</li>
+          </ul>
+          <a class="btn btn--light btn--block" href="#bonus">Как получить бесплатно</a>
+          <p class="plan__fine">Цена пилотного запуска, может уточниться до старта.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Бонус -->
+    <section class="sec bonus" id="bonus" aria-labelledby="bonus-title">
+      <div class="bonus__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="bonus-title" class="h2">Тем, кто с нами до запуска,&nbsp;— <em>бесплатно</em></h2>
+          <p class="sec__lead">Мы строим Orbis вместе с первыми пользователями. Ваши ответы помогут сделать сервис лучше. В благодарность за участие вы получите бесплатную подписку.</p>
+        </div>
+        <div class="tiers">
+          <div class="tier">
+            <p class="tier__m"><span>3</span> месяца</p>
+            <p class="tier__w">тарифа «Старт» после запуска</p>
+            <p class="tier__how">Оставьте заявку и ответьте на вопросы анкеты.</p>
+            <p class="tier__v">≈ 14 970 ₽</p>
+          </div>
+          <div class="tier tier--top">
+            <p class="tier__m"><span>6</span> месяцев</p>
+            <p class="tier__w">тарифа «Старт» после запуска</p>
+            <p class="tier__how">То же самое плюс участие в пилоте&nbsp;— тестировании сервиса до официального релиза.</p>
+            <p class="tier__v">≈ 29 940 ₽</p>
+          </div>
+        </div>
+        <p class="bonus__fine">Для заявок, оставленных до запуска платформы. Одно заведение — один бонус. Подробности в разделе с вопросами ниже.</p>
+      </div>
+    </section>
+
+    <!-- 7. Анкета -->
+    <section class="sec apply" id="apply" aria-labelledby="apply-title">
+      <div class="wrap apply__grid">
+        <div class="apply__text">
+          <h2 id="apply-title" class="h2">Анкета&nbsp;— <em>на&nbsp;3&nbsp;минуты</em></h2>
+          <p class="sec__lead">Расскажите, как вы ведёте соцсети сейчас. Ответы помогут Orbis стать лучше, а вы получите бонус.</p>
+        </div>
+        <div class="formbox" data-form>
+          <div class="formbox__empty" data-form-empty>
+            <svg class="formbox__mark" aria-hidden="true"><use href="#mark"/></svg>
+            <p class="formbox__h">Анкета появится здесь совсем скоро</p>
+            <p>А пока напишите нам в Telegram: ответим лично и запишем вас в первые участники.</p>
+            <a class="btn btn--light" href="https://t.me/duttcheo" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg> Написать @duttcheo</a>
+          </div>
+          <p class="formbox__legal" data-form-legal hidden>Согласие на обработку персональных данных даётся в анкете отдельной галочкой. Прочитайте <a href="consent.html">текст согласия</a> и <a href="privacy.html">политику обработки данных</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Команда -->
+    <section class="sec team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="team-title" class="h2">Кто делает <em>Orbis</em></h2>
+          <p class="sec__lead">Двое студентов СПбГМТУ из Санкт-Петербурга. Пишем код сами и сами ездим по заведениям.</p>
+        </div>
+        <div class="people">
+          <article class="person">
+            <div class="person__ph"><img src="assets/img/team-dmitry.jpg" width="640" height="800" alt="Дмитрий Пархоменко" loading="lazy"></div>
+            <h3 class="person__n">Дмитрий Пархоменко</h3>
+            <p class="person__r">Руководитель проекта</p>
+            <p>Отвечает за продукт, пилот и общение с заведениями. Около трёх лет программирует на Python, C++ и JavaScript. Участник федеральной программы «Бизнес.Поколение» Росмолодёжь.Бизнес.</p>
+          </article>
+          <article class="person">
+            <div class="person__ph"><img src="assets/img/team-fedor.jpg" width="640" height="800" alt="Фёдор Метельков" loading="lazy"></div>
+            <h3 class="person__n">Фёдор Метельков</h3>
+            <p class="person__r">Технический руководитель</p>
+            <p>Отвечает за архитектуру сервиса, разработку и интеграции. Основатель действующего IT-проекта, который приносит доход.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section class="sec faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <h2 id="faq-title" class="h2">Частые <em>вопросы</em></h2>
+        <div class="faq__list">
+          <details>
+            <summary>Когда Orbis заработает?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Сейчас мы готовим пилот в Санкт-Петербурге. Участники пилота получат доступ первыми, а после официального релиза откроем бесплатный доступ тем, кто поучаствовал в развитии проекта.</p>
+          </details>
+          <details>
+            <summary>Orbis опубликует что-то без меня?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Нет. Публикация уходит только после того, как вы посмотрите текст, обложку, дату и нажмёте «Одобрить». Ответы гостям сервис тоже только готовит — отправляете их вы.</p>
+          </details>
+          <details>
+            <summary>С какими соцсетями он работает?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Первоначально работает интеграция с ВКонтакте. Чуть позже будут доступны и другие соцсети.</p>
+          </details>
+          <details>
+            <summary>А если я ошибусь в цене или голосовое будет неразборчивым?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Orbis сверяет цены и условия с профилем заведения. Если данных не хватает, фото размыто или запись не разобрать, сервис ничего не публикует, а просит уточнить или заменить материал.</p>
+          </details>
+          <details>
+            <summary>Нужно разбираться в SMM?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Нет. Вы начинаете с задачи (рассказать о новинке, акции или услуге) и своих фото. План, тексты и время публикации Orbis предложит сам.</p>
+          </details>
+          <details>
+            <summary>Как получить бесплатные месяцы?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Оставьте заявку и ответьте на вопросы анкеты до запуска платформы, и вы получите 3 месяца тарифа «Старт». Если вы к тому же готовы стать участником пилота (тестирование сервиса до официального релиза),&nbsp;— 6 месяцев. Бесплатный период начнётся после запуска, один бонус на одно заведение.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Финал -->
+    <section class="close" aria-labelledby="close-title">
+      <div class="close__glow" aria-hidden="true"></div>
+      <div class="wrap close__in">
+        <svg class="close__mark" aria-hidden="true"><use href="#mark"/></svg>
+        <h2 id="close-title" class="close__title">Соцсети бизнеса&nbsp;— <em>на&nbsp;орбите</em></h2>
+        <div class="hero__actions close__actions">
+          <a class="btn btn--light" href="#apply">Заполнить анкету <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="https://t.me/duttcheo" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg> Написать в Telegram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <a class="brand" href="#top" aria-label="Orbis — наверх"><svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg><span class="brand__word">Orbis</span></a>
+      <nav class="foot__links" aria-label="Документы и контакты">
+        <a href="https://t.me/duttcheo" target="_blank" rel="noopener">Telegram</a>
+        <a href="privacy.html">Политика обработки данных</a>
+        <a href="consent.html">Согласие на обработку данных</a>
+      </nav>
+      <p class="foot__c">© 2026 Orbis. Санкт-Петербург</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2" defer></script>
+</body>
+</html>
