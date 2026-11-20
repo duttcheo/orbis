@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/onest-normal-300-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/styles.css?v=8">
+  <link rel="stylesheet" href="assets/css/styles.css?v=9">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -152,10 +152,11 @@
         <div class="demo" data-demo>
           <div class="demo__steps" role="tablist" aria-label="Шаги работы с Orbis">
             <div class="demo__orbit" aria-hidden="true"><svg viewBox="0 0 28 100" preserveAspectRatio="none"><path d="M26 0 Q -18 50 26 100" vector-effect="non-scaling-stroke"/></svg><i class="demo__light"></i></div>
-            <button class="demo__step" role="tab" id="st-1" aria-controls="pn-1" aria-selected="true"><span class="demo__k">Голосовое</span><span class="demo__d">Наговорите как есть, своими словами</span></button>
-            <button class="demo__step" role="tab" id="st-2" aria-controls="pn-2" aria-selected="false" tabindex="-1"><span class="demo__k">Черновик</span><span class="demo__d">Orbis превращает его в продающий пост</span></button>
-            <button class="demo__step" role="tab" id="st-3" aria-controls="pn-3" aria-selected="false" tabindex="-1"><span class="demo__k">Правки</span><span class="demo__d">Попросите короче или иначе&nbsp;— и одобрите</span></button>
-            <button class="demo__step" role="tab" id="st-4" aria-controls="pn-4" aria-selected="false" tabindex="-1"><span class="demo__k">План</span><span class="demo__d">Пост встаёт в расписание на лучшее время</span></button>
+            <button class="demo__step" role="tab" id="st-1" aria-controls="pn-1" aria-selected="true"><span class="demo__n" aria-hidden="true">1</span><span class="demo__k">Голосовое</span><span class="demo__d">Наговорите как есть, своими словами</span></button>
+            <button class="demo__step" role="tab" id="st-2" aria-controls="pn-2" aria-selected="false" tabindex="-1"><span class="demo__n" aria-hidden="true">2</span><span class="demo__k">Черновик</span><span class="demo__d">Orbis превращает его в продающий пост</span></button>
+            <button class="demo__step" role="tab" id="st-3" aria-controls="pn-3" aria-selected="false" tabindex="-1"><span class="demo__n" aria-hidden="true">3</span><span class="demo__k">Правки</span><span class="demo__d">Попросите короче или иначе&nbsp;— и одобрите</span></button>
+            <button class="demo__step" role="tab" id="st-4" aria-controls="pn-4" aria-selected="false" tabindex="-1"><span class="demo__n" aria-hidden="true">4</span><span class="demo__k">План</span><span class="demo__d">Пост встаёт в расписание на лучшее время</span></button>
+            <p class="demo__cap" aria-hidden="true" data-demo-cap></p>
             <button class="demo__toggle" type="button" data-demo-toggle aria-label="Остановить показ"><svg class="ic-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="ic-play" aria-hidden="true"><use href="#i-play"/></svg></button>
           </div>
 
@@ -208,6 +209,7 @@
               </div>
               <p class="note">Orbis выбрал среду, 9:30: в это время ваши подписчики активнее всего. Через неделю покажет, как сработал пост.</p>
             </div>
+            <button class="demo__next" type="button" data-demo-next>Дальше: Черновик</button>
           </div>
         </div>
       </div>
@@ -365,13 +367,13 @@
         </div>
         <div class="people">
           <article class="person">
-            <div class="person__ph"><img src="assets/img/team-dmitry.jpg" width="640" height="800" alt="Дмитрий Пархоменко" loading="lazy"></div>
+            <div class="person__ph"><img src="assets/img/team-dmitry.jpg?v=2" width="640" height="800" alt="Дмитрий Пархоменко" loading="lazy"></div>
             <h3 class="person__n">Дмитрий Пархоменко</h3>
             <p class="person__r">Руководитель проекта</p>
             <p>Отвечает за продукт, пилот и общение с заведениями. Около трёх лет программирует на Python, C++ и JavaScript. Участник федеральной программы «Бизнес.Поколение» Росмолодёжь.Бизнес.</p>
           </article>
           <article class="person">
-            <div class="person__ph"><img src="assets/img/team-fedor.jpg" width="640" height="800" alt="Фёдор Метельков" loading="lazy"></div>
+            <div class="person__ph"><img src="assets/img/team-fedor.jpg?v=2" width="640" height="800" alt="Фёдор Метельков" loading="lazy"></div>
             <h3 class="person__n">Фёдор Метельков</h3>
             <p class="person__r">Технический руководитель</p>
             <p>Отвечает за архитектуру сервиса, разработку и интеграции. Основатель действующего IT-проекта, который приносит доход.</p>
@@ -439,6 +441,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>

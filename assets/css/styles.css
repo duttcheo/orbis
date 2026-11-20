@@ -62,13 +62,14 @@ html { scrollbar-color: #26314a var(--bg); scrollbar-width: thin; }
 
 [hidden] { display: none !important; }
 .sr-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* Ссылка для клавиатуры: видна только при переходе Tab, на телефонах не появляется */
 .skip {
-  position: fixed; left: 16px; top: 12px; z-index: 100;
+  position: absolute; left: 16px; top: 12px; z-index: 100;
   padding: 12px 18px; border-radius: 999px;
   background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 500;
-  transform: translateY(-160%); transition: transform .3s var(--ease);
+  opacity: 0; pointer-events: none; clip-path: inset(50%);
 }
-.skip:focus { transform: none; }
+.skip:focus-visible { opacity: 1; pointer-events: auto; clip-path: none; }
 
 .wrap { width: 100%; max-width: calc(var(--wrap) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
 
@@ -256,6 +257,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 300; letter-spa
 .demo:not(.is-playing) .demo__toggle .ic-play { opacity: 1; }
 .demo:not(.is-playing) .demo__toggle .ic-pause { opacity: 0; }
 .no-js .demo__toggle, html:not(.js) .demo__toggle { display: none; }
+/* Номера шагов, подпись и кнопка «Дальше» — только в мобильной версии */
+.demo__n, .demo__cap, .demo__next { display: none; }
 
 .app {
   position: relative; min-height: 440px; padding: 22px clamp(18px, 2.4vw, 32px) 32px;
@@ -535,8 +538,48 @@ em { font-family: var(--serif); font-style: italic; font-weight: 300; letter-spa
   .hero__title { font-size: clamp(2.5rem, 1.1rem + 7.4vw, 3.4rem); }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; }
-  .demo__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .demo__toggle { grid-column: 1 / -1; justify-self: start; }
+  /* Как работает: шаги 1–4 на одной линии, содержимое сразу под ними */
+  .demo { gap: 14px; }
+  .demo__steps { --p: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; row-gap: 12px; }
+  .demo__steps::before, .demo__steps::after {
+    content: ""; position: absolute; top: 22px; left: 12.5%; height: 2px; border-radius: 2px; pointer-events: none;
+  }
+  .demo__steps::before { width: 75%; background: var(--line-2); }
+  .demo__steps::after { width: calc(75% * var(--p)); background: linear-gradient(90deg, var(--blue), var(--ice)); transition: width .6s var(--ease); }
+  .demo__step { justify-items: center; gap: 8px; padding: 6px 2px 10px; overflow: visible; text-align: center; border: 0; border-radius: 0; background: none; }
+  .demo__step:hover, .demo__step[aria-selected="true"] { background: none; }
+  .demo__step::after { left: 22%; right: 22%; }
+  .demo__n {
+    position: relative; z-index: 1; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+    border: 1.5px solid var(--line-2); background: var(--bg); color: var(--muted); font-size: 15px; font-weight: 500;
+    transition: background-color .4s var(--ease), border-color .4s var(--ease), color .4s var(--ease);
+  }
+  .demo__step.is-done .demo__n { border-color: var(--ice); color: var(--ice); }
+  .demo__step[aria-selected="true"] .demo__n { background: var(--ice); border-color: var(--ice); color: var(--bg); box-shadow: 0 0 0 5px rgba(169, 212, 255, .14); }
+  .demo__k { font-size: 13.5px; }
+  .demo__cap { display: block; grid-column: 1 / -1; min-height: 44px; display: flex; align-items: center; padding: 10px 56px 10px 14px; border-radius: var(--r); background: var(--glass); border: 1px solid var(--line); font-size: 14px; line-height: 1.35; color: var(--ink-2); }
+  .demo__cap b { color: var(--ice); font-weight: 500; margin-right: 6px; white-space: nowrap; }
+  .demo__toggle { position: absolute; right: 6px; bottom: 6px; width: 36px; height: 36px; margin: 0; background: var(--bg); }
+  .demo__next {
+    display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 48px; margin-top: 22px;
+    border-radius: 999px; border: 1px solid var(--line-2); background: var(--glass-2); color: var(--ink); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer;
+  }
+  .demo__next::after { content: "→"; color: var(--ice); }
+  .demo__next.is-again::after { content: "↺"; }
+  .app { padding: 16px 16px 18px; }
+  .app__bar { margin-bottom: 18px; padding-bottom: 14px; }
+  /* Возможности: аккордеон — текст раскрывается сразу под пунктом */
+  .mods { display: flex; flex-direction: column; align-items: stretch; gap: 0; overflow-anchor: none; }
+  .mods__list, .mods__panels { display: contents; }
+  #mt-1 { order: 1; } #mp-1 { order: 2; } #mt-2 { order: 3; } #mp-2 { order: 4; } #mt-3 { order: 5; } #mp-3 { order: 6; }
+  #mt-4 { order: 7; } #mp-4 { order: 8; } #mt-5 { order: 9; } #mp-5 { order: 10; } #mt-6 { order: 11; } #mp-6 { order: 12; }
+  .mods__list button { padding: 18px 2px; font-size: 1.12rem; color: var(--ink-2); }
+  .mods__list button:first-child { border-top: 1px solid var(--line); }
+  .mods__list button[aria-selected="true"] { padding-left: 2px; border-bottom-color: transparent; }
+  .mods__list button::after { content: "+"; margin-left: auto; font-size: 24px; line-height: 1; font-weight: 300; color: var(--muted); transition: transform .4s var(--ease), color .3s; }
+  .mods__list button[aria-selected="true"]::after { transform: rotate(45deg); color: var(--ice); }
+  .mod { min-height: 0; gap: 18px; padding: 18px 16px; margin-bottom: 14px; border-radius: var(--r); }
+  .mod__t { font-size: 16px; }
   .week { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .week__d { min-height: 0; grid-template-columns: 32px 1fr; align-items: center; padding: 8px 10px; }
   .week__d:not(:has(.slot)) { display: none; }

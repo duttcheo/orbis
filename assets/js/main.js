@@ -25,6 +25,8 @@ const FORM_URL = 'https://forms.yandex.ru/u/6affb2c1902902df415915f3/?iframe=1';
   function tabs(root, onSelect) {
     const list = [...root.querySelectorAll('[role="tab"]')];
     const select = (tab, focus) => {
+      // На телефоне вкладки раскрываются аккордеоном: держим нажатый пункт на месте экрана
+      const before = tab.getBoundingClientRect().top;
       list.forEach((t) => {
         const on = t === tab;
         t.setAttribute('aria-selected', String(on));
@@ -32,7 +34,9 @@ const FORM_URL = 'https://forms.yandex.ru/u/6affb2c1902902df415915f3/?iframe=1';
         const panel = document.getElementById(t.getAttribute('aria-controls'));
         if (panel) panel.hidden = !on;
       });
-      if (focus) tab.focus();
+      const shift = tab.getBoundingClientRect().top - before;
+      if (Math.abs(shift) > 1) window.scrollBy({ top: shift, behavior: 'instant' });
+      if (focus) tab.focus({ preventScroll: true });
       onSelect && onSelect(list.indexOf(tab));
     };
     list.forEach((t, i) => {
@@ -52,7 +56,7 @@ const FORM_URL = 'https://forms.yandex.ru/u/6affb2c1902902df415915f3/?iframe=1';
   if (demo) {
     const DUR = 4200;
     let timer = null, inView = false, held = false, userPaused = reduce.matches, index = 0;
-    const t = tabs(demo, (i) => { index = i; placeLight(); restart(); });
+    const t = tabs(demo, (i) => { index = i; placeLight(); syncMobile(); restart(); });
     // Свет на орбите шагов: кривая x(t) = (1-t)²·26 + 2(1-t)t·(-18) + t²·26 в поле 28×100
     const orbit = demo.querySelector('.demo__orbit');
     const light = demo.querySelector('.demo__light');
@@ -65,8 +69,44 @@ const FORM_URL = 'https://forms.yandex.ru/u/6affb2c1902902df415915f3/?iframe=1';
       light.style.transform = `translate(${x}px, ${f * box.height}px)`;
       t.list.forEach((s, i) => s.classList.toggle('is-done', i < index));
     }
+    // Мобильная версия: линия прогресса, подпись шага и кнопка «Дальше»
+    const steps = demo.querySelector('.demo__steps');
+    const cap = demo.querySelector('[data-demo-cap]');
+    const next = demo.querySelector('[data-demo-next]');
+    const phone = window.matchMedia('(max-width: 640px)');
+    function syncMobile() {
+      const n = t.list.length;
+      steps.style.setProperty('--p', String(index / (n - 1)));
+      t.list.forEach((s, i) => s.classList.toggle('is-done', i < index));
+      if (cap) {
+        const d = t.list[index].querySelector('.demo__d');
+        cap.innerHTML = '';
+        const b = document.createElement('b');
+        b.textContent = `Шаг ${index + 1} из ${n}`;
+        cap.append(b, d ? d.textContent : '');
+      }
+      if (next) {
+        const last = index === n - 1;
+        next.textContent = last ? 'Посмотреть сначала' : `Дальше: ${t.list[index + 1].querySelector('.demo__k').textContent}`;
+        next.classList.toggle('is-again', last);
+      }
+    }
+    // На телефоне после нажатия пользователем шаги больше не листаются сами
+    const stopOnPhone = () => {
+      if (!phone.matches || userPaused) return;
+      userPaused = true;
+      toggle.setAttribute('aria-label', 'Продолжить показ');
+    };
+    t.list.forEach((s) => s.addEventListener('click', stopOnPhone, { capture: true }));
+    if (next) next.addEventListener('click', () => {
+      stopOnPhone();
+      t.select(t.list[(index + 1) % t.list.length], false);
+      const top = steps.getBoundingClientRect().top;
+      if (top < 84) window.scrollBy({ top: top - 92, behavior: 'smooth' });
+    });
     window.addEventListener('resize', placeLight);
     requestAnimationFrame(placeLight);
+    syncMobile();
     const toggle = demo.querySelector('[data-demo-toggle]');
     demo.style.setProperty('--dur', DUR + 'ms');
 
