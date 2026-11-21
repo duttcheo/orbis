@@ -521,6 +521,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 300; letter-spa
   .mods__panels { position: static; }
 }
 @media (max-width: 900px) {
+  /* На телефонах и планшетах шапка не закреплена: уходит вверх вместе со страницей */
+  html { scroll-padding-top: 16px; }
+  .nav, .nav.is-scrolled { position: absolute; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: transparent; }
   .nav__links { display: none; }
   .hero { --orb: min(48vw, 360px); min-height: 0; align-items: flex-start; padding: calc(88px + var(--orb) + 8px) 0 64px; }
   .hero__orb { width: var(--orb); left: 50%; right: auto; top: 88px; translate: -50% 0; }

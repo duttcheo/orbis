@@ -102,7 +102,9 @@ const FORM_URL = 'https://forms.yandex.ru/u/6affb2c1902902df415915f3/?iframe=1';
       stopOnPhone();
       t.select(t.list[(index + 1) % t.list.length], false);
       const top = steps.getBoundingClientRect().top;
-      if (top < 84) window.scrollBy({ top: top - 92, behavior: 'smooth' });
+      // если шапка закреплена (ПК), оставляем место под неё; на телефоне она уходит со страницей
+      const navH = nav && getComputedStyle(nav).position === 'fixed' ? nav.offsetHeight : 0;
+      if (top < navH + 8) window.scrollBy({ top: top - navH - 16, behavior: 'smooth' });
     });
     window.addEventListener('resize', placeLight);
     requestAnimationFrame(placeLight);
